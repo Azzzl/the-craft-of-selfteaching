@@ -1,0 +1,75 @@
+#如何写一条清晰的备注
+1. 标题 (Header)
+标题是规范的核心，由三部分组成：类型 (Type)、范围 (Scope) 和 主题 (Subject)。
+
+类型 (Type) - 必需
+这部分用来说明这次提交的性质。常用的类型有：
+
+feat: 新功能 (Feature)。比如你添加了一个新的学习笔记文件。
+
+fix: 修复 Bug。
+
+docs: 文档变更。比如修改 README.md 或者注释。这是你记录学习笔记时最常用的类型。
+
+style: 代码风格的调整，不影响代码的运行逻辑（比如修改缩进、格式化代码）。
+
+refactor: 代码重构。既不是修复 Bug，也不是增加新功能，只是对现有代码结构的优化。
+
+test: 测试相关。增加或修改测试用例。
+
+chore: 琐事。指构建过程、辅助工具或库的更改（比如修改 .gitignore）。
+
+范围 (Scope) - 可选
+范围用来说明这次提交影响到的模块或部分。比如 (auth)、(ui)、(api)。对于你的个人学习项目，这个部分通常可以省略。
+
+主题 (Subject) - 必需
+这是对本次提交的一个简短描述，是标题中最重要的部分。它有一些公认的写作规则：
+
+使用祈使语气：以动词原形开头，就像在下达一个命令。比如写 Add login page，而不是 Added login page 或 Adds login page。
+
+一个简单的检验方法：你的主题应该能接在 If applied, this commit will... (如果应用此提交，它将会...) 这句话后面，并形成一个通顺的句子。例如：“... add notes on Boolean operations.” (通顺) vs. “... added notes on Boolean operations.” (不通顺)。
+
+首字母通常不用大写 (虽然有些团队习惯大写，但小写更常见)。
+
+结尾不加句号 .。
+
+2. 正文 (Body) - 可选
+如果一次提交的改动比较复杂，只用一个标题说不清楚，那么你就应该添加正文。
+
+正文和标题之间必须用一个空行隔开。
+
+在正文里，你可以详细说明**“为什么要做这次修改”**以及“这次修改带来了什么影响”。
+
+可以分段，也可以使用列表。
+
+3. 页脚 (Footer) - 可选
+页脚通常用来处理两种情况：
+
+重大变更 (Breaking Changes)：如果你的代码和之前的版本不兼容，需要在这里以 BREAKING CHANGE: 开头进行说明。
+
+关联 Issue：如果你的这次提交解决了某个 Issue，可以在这里写 Closes #123 或 Fixes #456，这样 GitHub 会在你推送后自动关闭对应的 Issue。
+
+实践中的例子
+例1：一个简单的笔记提交 (只用标题)
+这是你最常用的情况。
+
+docs: add notes on git branching
+(含义：文档类提交，内容是增加了关于 Git 分支的笔记。)
+
+例2：一个修复 Bug 的提交
+
+fix(auth): correct password validation logic
+(含义：修复了一个 Bug，范围是认证模块，内容是修正了密码验证逻辑。)
+
+例3：一个完整的、复杂的提交
+
+feat: add user profile page
+
+This new page allows users to view and edit their personal information,
+including username, email, and profile picture.
+
+- Users can now upload a new avatar.
+- Email validation has been added to the settings form.
+
+Closes #42
+(含义：一个新功能，添加了用户个人资料页。正文详细说明了功能点。页脚关闭了第42号 Issue。)
